@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/program.js"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <title>Program Solve</title>
+</head>
+
+<body>
+    <div class="div-car">
+        <nav class="nav-bar">
+            <i class="d-flex justify-content-center bi bi-cart">Shopping car</i>
+        </nav>
+    </div>
+
+    <div class="d-flex justify-content-center wrapper">
+        <div class="h-auto  d-inline-block form-wrapper">
+            <div class="shopping-car">
+
+                <div class="input-group mb-1">
+                    <label for="name">Nome do produto</label>
+                </div>
+                <div class="input-group-prepend">
+                    <input id="name" type="text" placeholder="Nome do produto">
+                </div>
+
+                <div class="input-group mb-1">
+                    <label for="value">Valor</label>
+                </div>
+                <div class="input-group-prepend">
+                    <input id="value" type="text" placeholder="Valor do produto">
+                </div>
+
+                <button class="add-product" type="submit" value="submit" onclick="product.addProduct()">
+                    <i class="bi bi-cart-plus"></i>
+                </button>
+
+                <button>Finalizar Compra</button>
+
+                <div class="content">
+                    <table border="1">
+                        <thead>
+                            <th>Id</th>
+                            <th>Nome produto</th>
+                            <th>Valor</th>
+                        </thead>
+
+                        <tbody id="tBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
