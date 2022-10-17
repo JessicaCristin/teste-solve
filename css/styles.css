@@ -1,11 +1,12 @@
-
 .nav-bar {
     background-color: rgb(115, 115, 201);
 }
 
-.bi-cart{
+.bi-cart {
     font-size: 3rem;
 }
-#tBody{
-border: 1cm;
+
+table,th, td {
+    border: 1px solid black;
 }
+
