@@ -13,8 +13,8 @@ class Product {
             this.id++;
             this.listAll();
             document.getElementById('endsProgram').disabled = false;
-        } else {
-            alert('O máximo de compras permitido é 10.');
+            document.getElementById('name').value='';
+            document.getElementById('value').value='';
         }
     }
 
@@ -23,7 +23,7 @@ class Product {
         for (let i = 0; i < this.arrayProduct.length; i++) {
             sumValue += Number(this.arrayProduct[i].value);
         }
-        
+
         let table = document.getElementById('tBody');
         let tr = table.insertRow();
 
@@ -34,6 +34,32 @@ class Product {
         tdValueTotal.innerText = sumValue;
 
         document.getElementById('addProduct').disabled = true;
+        document.getElementById('endsProgram').disabled = true;
+        document.getElementsByTagName('img').disabled = true;
+
+        let r100 = sumValue / 100;
+        let r50 = ((sumValue % 100) / 50);
+        let r20 = (((sumValue % 100) % 50) / 20);
+        let r10 = ((((sumValue % 100) % 50) % 20) / 10);
+        let r5 = (((((sumValue % 100) % 50) % 20) % 10) / 5);
+        let r2 = ((((((sumValue % 100) % 50) % 20) % 10) % 5) / 2);
+        let r1 = (((((((sumValue % 100) % 50) % 20) % 10) % 5) % 2) / 1);
+
+        var arrayMoney = [parseInt(r100), parseInt(r50), parseInt(r20), parseInt(r10), parseInt(r5), parseInt(r2), parseInt(r1)];
+        var arrayValueMoney = ["R$ 100", "R$ 50", "R$ 20", "R$ 10", "R$ 5", "R$ 2", "R$ 1"]
+        let tableMoney = document.getElementById('tBodyMoney');
+
+        for (let i = 0; i < arrayMoney.length; i++) {
+            let trMoney = tableMoney.insertRow();
+
+            let tdValue = trMoney.insertCell();
+            let tdQtd = trMoney.insertCell();
+
+            tdValue.innerText = arrayValueMoney[i];
+
+            tdQtd.innerText = arrayMoney[i];
+        }
+
     }
 
     listAll() {
@@ -102,7 +128,7 @@ class Product {
         }
     }
 
-    
+
 }
 
 var product = new Product();
