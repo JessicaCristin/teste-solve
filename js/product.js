@@ -13,17 +13,22 @@ class Product {
             this.id++;
             this.listAll();
             document.getElementById('endsProgram').disabled = false;
-            document.getElementById('name').value='';
-            document.getElementById('value').value='';
+            document.getElementById('name').value = '';
+            document.getElementById('value').value = '';
         }
     }
 
-    endsProgram() {
+    sumValue() {
         let sumValue = 0;
         for (let i = 0; i < this.arrayProduct.length; i++) {
             sumValue += Number(this.arrayProduct[i].value);
         }
+        return sumValue;
+    }
 
+    endsProgram() {
+        let sumValue = this.sumValue();
+    
         let table = document.getElementById('tBody');
         let tr = table.insertRow();
 
@@ -35,7 +40,7 @@ class Product {
 
         document.getElementById('addProduct').disabled = true;
         document.getElementById('endsProgram').disabled = true;
-        document.getElementsByTagName('img').disabled = true;
+        document.getElementById('remove0').src = '';
 
         let r100 = sumValue / 100;
         let r50 = ((sumValue % 100) / 50);
@@ -56,7 +61,6 @@ class Product {
             let tdQtd = trMoney.insertCell();
 
             tdValue.innerText = arrayValueMoney[i];
-
             tdQtd.innerText = arrayMoney[i];
         }
 
@@ -71,16 +75,17 @@ class Product {
 
             let tdId = tr.insertCell();
             let tdName = tr.insertCell();
-            let tdValor = tr.insertCell();
+            let tdValue = tr.insertCell();
             let tdAction = tr.insertCell();
 
             let imgDelete = document.createElement('img');
             imgDelete.src = 'images/cart-x.svg';
+            imgDelete.id = "remove" + i.toString();
             imgDelete.setAttribute("onclick", "product.removeProduct(" + this.arrayProduct[i].id + ")");
 
             tdId.innerText = this.arrayProduct[i].id;
             tdName.innerText = this.arrayProduct[i].name;
-            tdValor.innerText = this.arrayProduct[i].value;
+            tdValue.innerText = this.arrayProduct[i].value;
 
             tdAction.appendChild(imgDelete);
         }
@@ -127,8 +132,6 @@ class Product {
             }
         }
     }
-
-
 }
 
 var product = new Product();
