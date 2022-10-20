@@ -28,7 +28,7 @@ class Product {
 
     endsProgram() {
         let sumValue = this.sumValue();
-    
+
         let table = document.getElementById('tBody');
         let tr = table.insertRow();
 
@@ -40,8 +40,11 @@ class Product {
 
         document.getElementById('addProduct').disabled = true;
         document.getElementById('endsProgram').disabled = true;
-        document.getElementById('remove0').src = '';
 
+        for (let i = 0; i < this.arrayProduct.length; i++) {
+            document.getElementById('remove' + i.toString()).src = '';
+        }
+        
         let r100 = sumValue / 100;
         let r50 = ((sumValue % 100) / 50);
         let r20 = (((sumValue % 100) % 50) / 20);
